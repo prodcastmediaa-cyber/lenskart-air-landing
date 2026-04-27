@@ -136,6 +136,30 @@ function initPage() {
   heroEntrance();
   initProductSection();
   initSectionAnims();
+  initMobileMenu();
+}
+
+/* ── Mobile hamburger menu ── */
+function initMobileMenu() {
+  const hamburger = document.getElementById('hamburger');
+  const menu      = document.getElementById('mobile-menu');
+  const close     = document.getElementById('mobile-close');
+  const links     = menu.querySelectorAll('.mobile-link');
+
+  function openMenu() {
+    menu.classList.add('open');
+    hamburger.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', openMenu);
+  close.addEventListener('click', closeMenu);
+  links.forEach(l => l.addEventListener('click', closeMenu));
 }
 
 /* ── Hero entrance ── */
